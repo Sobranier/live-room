@@ -1,0 +1,7 @@
+/**index.wxss**/
+.container {
+  padding-bottom: 1600rpx;  
+}
+
+.usermotto {
+}
