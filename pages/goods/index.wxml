@@ -12,9 +12,5 @@
     beauty="{{beauty}}"
     template="float"
     bindRoomEvent="onRoomEvent"
-  >
-    <cover-view>
-      <icon type="success" size="30"/>
-    </cover-view>
-  </mlvb-live-room>
+  />
 </view>

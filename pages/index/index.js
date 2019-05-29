@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -13,7 +12,12 @@ Page({
     console.log('触发事件', e);
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewLive: function() {
+    wx.navigateTo({
+      url: '../live-room/index'
+    })
+  },
+  bindViewGoods: function() {
     wx.navigateTo({
       url: '../live-room/index'
     })
@@ -47,7 +51,6 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

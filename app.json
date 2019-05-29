@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/live-room/index"
+    "pages/live-room/index",
+    "pages/goods/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

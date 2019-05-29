@@ -4,6 +4,11 @@
 }
 
 mlvb-live-room {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+  width: 400rpx;
+  height: 600rpx;
 }
 
 .usermotto {
