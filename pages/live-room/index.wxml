@@ -13,8 +13,15 @@
     template="float"
     bindRoomEvent="onRoomEvent"
   >
-    <cover-view>
-      <icon type="success" size="30"/>
+    <!-- 观众播放界面上叠加的操作按钮 -->
+    <cover-view slot="audience" style='position:absolute;bottom:0;height:10%;width:100%'>
+      <cover-view class="operate-nolink">
+        <cover-view class="img-box-small">
+          <cover-image class="img-view-small" src='/images/active.png' bindtap="showGoods"></cover-image>
+        </cover-view>
+      </cover-view>
     </cover-view>
   </mlvb-live-room>
+
+  <button bindtap="openLive">打开直播</button>
 </view>

@@ -8,6 +8,11 @@
     height: 123.07vw; 
 }
 
+.v-sub {
+    width: 25vw;
+    height: 25vh;
+}
+
 .v-main-video{
     width: 100vw;
     height: 100vh;

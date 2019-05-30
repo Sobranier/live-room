@@ -17,11 +17,6 @@ Page({
       url: '../live-room/index'
     })
   },
-  bindViewGoods: function() {
-    wx.navigateTo({
-      url: '../live-room/index'
-    })
-  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

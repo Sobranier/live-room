@@ -7,9 +7,6 @@ const app = getApp()
 
 Page({
   data: {
-    isGetLoginInfo: false,
-    roomList: [],
-
     showLiveRoom: false,
     roomID: 'room_user_4cd1976e_c201',
     role: 'audience', //'',
@@ -46,17 +43,14 @@ Page({
           success: function(ret) {
             //登录成功，拉取房间列表
             self.setData({
-              isGetLoginInfo: true,
-              showLiveRoom: true
+              // showLiveRoom: true
             });
-            console.log('房间相关信息成功', ret);
-            // self.getRoomList();
-            self.start();
             wx.hideLoading();
+
+            self.openLive();
           },
           fail: function(ret) {
             //登录失败
-            self.data.isGetLoginInfo = false;
             wx.hideLoading();
             wx.showModal({
               title: '提示',
@@ -71,7 +65,6 @@ Page({
       },
       fail: function (ret) {
         //获取IM信息失败
-        self.data.isGetLoginInfo = false;
         wx.hideLoading();
         wx.showModal({
           title: '提示',
@@ -84,43 +77,7 @@ Page({
       }
     });
   },
-	/**
-	 * 拉取房间列表
-	 * @return {[type]}            [description]
-	 */
-  getRoomList: function () {
-    var self = this;
-    if (!self.data.isGetLoginInfo) {
-      wx.showModal({
-        title: '提示',
-        content: '登录信息初始化中，请稍后再试',
-        showCancel: false
-      })
-      return;
-    }
-    liveroom.getRoomList({
-      data: {
-        index: 0,
-        cnt: 20
-      },
-      success: function (ret) {
-        self.setData({
-          roomList: ret.rooms
-        });
-        console.log('获取房间列表成功');
-      },
-      fail: function (ret) {
-        console.log(ret);
-        wx.showModal({
-          title: '获取房间列表失败',
-          content: ret.errMsg,
-          showCancel: false
-        });
-      }
-    });
-  },
-  onLoad: function () {
-  },
+  onLoad: function () {},
   start: function() {
     var self = this;
     self.component = self.selectComponent("#id_liveroom")
@@ -128,12 +85,15 @@ Page({
     console.log('self:', self);
     self.component.start();
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  openLive: function() {
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      showLiveRoom: true
+    });
+    this.start();
+  },
+  showGoods: function() {
+    wx.navigateTo({
+      url: '../goods/index'
     })
   }
 })

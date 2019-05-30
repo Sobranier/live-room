@@ -9,6 +9,5 @@
   </view>
   <view class="usermotto">
     <button bindtap="bindViewLive">直播商品</button>
-    <button bindtap="bindViewGoods">商品直播</button>
   </view>
 </view>

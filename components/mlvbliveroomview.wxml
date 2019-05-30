@@ -2,7 +2,7 @@
     <import src='./floattemplate/floattemplate.wxml' />
     <template
       is="floattemplate"
-      data="{{debug, menuItems, isCaster, mainPusherInfo, beauty, muted, pureaudio, userName, visualPlayers, linkPusherInfo, members, mode,roomname,headerHeight,statusBarHeight}}"
+      data="{{debug, menuItems, isCaster, mainPusherInfo, beauty, muted, pureaudio, userName, visualPlayers, linkPusherInfo, members, mode,roomname,headerHeight,statusBarHeight, isSub}}"
     />
 </block>
 

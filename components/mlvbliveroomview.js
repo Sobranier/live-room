@@ -35,6 +35,8 @@ Component({
         beauty: { type: Number, value: 5 },
         muted: {type: Boolean, value: false},
         pureaudio: {type: Boolean, value: false},
+        // 自定义，是一个小视频
+        isSub: {type: Boolean, value: false}
     },
 
     data: {

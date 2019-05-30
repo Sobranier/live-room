@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <image src="/images/bg1.jpeg" class="bg" mode="aspectFill" />
   <mlvb-live-room
     id="id_liveroom"
     wx:if="{{showLiveRoom}}"
@@ -12,5 +13,15 @@
     beauty="{{beauty}}"
     template="float"
     bindRoomEvent="onRoomEvent"
-  />
+    isSub="true"
+  >
+    <!-- 观众播放界面上叠加的操作按钮 -->
+    <cover-view slot="audience" style='position:absolute;bottom:0;height:10%;width:100%'>
+      <cover-view class="operate-nolink">
+        <cover-view class="img-box-small">
+          <cover-image class="img-view-small" src='/Resources/fullscreen.png' bindtap="showGoods"></cover-image>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </mlvb-live-room>
 </view>

@@ -1,5 +1,5 @@
 <template name="floattemplate">
-  <view class="{{linkPusherInfo.url || isCaster ? 'v-full2': 'v-full'}}">
+  <view class="{{linkPusherInfo.url || isCaster ? 'v-full2': 'v-full'}} {{isSub ? 'v-sub' : ''}}">
     <view wx:if="{{isCaster}}" class='v-main-video'>
       <live-pusher id="pusher" mode="{{mode}}" url="{{mainPusherInfo.url}}" min-bitrate="{{mainPusherInfo.minBitrate}}" max-bitrate="{{mainPusherInfo.maxBitrate}}" beauty="{{beauty}}" enable-camera="{{!pureaudio}}" muted="{{muted}}"
         aspect="9:16" waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg" background-mute="{{true}}" debug="{{debug}}" bindstatechange="onMainPush" binderror="onMainError">
@@ -8,7 +8,7 @@
       </live-pusher>
     </view>
 
-    <view hidden="{{isCaster}}" class="{{linkPusherInfo.url ? 'v-main-video' : 'v-full'}}">
+    <view hidden="{{isCaster}}" class="{{linkPusherInfo.url ? 'v-main-video' : 'v-full'}}  {{isSub ? 'v-sub' : ''}}">
       <live-player autoplay id="player" mode="{{visualPlayers[0].mode}}" min-cache="{{visualPlayers[0].minCache}}" max-cache="{{visualPlayers[0].maxCache}}" object-fit="{{visualPlayers[0].objectFit}}" src="{{visualPlayers[0].url}}" debug="{{debug}}" muted="{{muted}}" background-mute="{{visualPlayers[0].mute}}"
         bindstatechange="onMainPlayState" binderror="onMainPlayError">
         <slot name="audienceBackButton"></slot>
@@ -18,7 +18,6 @@
   </view>
 
   <view wx:if="{{linkPusherInfo.url || isCaster}}" class='v-sub-video-list'>
-
     <view class='.v-sub-video' wx:if="{{!isCaster && linkPusherInfo.url}}">
       <live-pusher wx:if="{{!isCaster && linkPusherInfo.url}}" max-bitrate="300" min-bitrate="200" id="audience_pusher" mode="RTC" url="{{linkPusherInfo.url}}" beauty="{{beauty}}" enable-camera="{{!pureaudio}}" muted="{{muted}}" aspect="9:16" waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
         background-mute="true" debug="{{debug}}" bindstatechange="onLinkPush" binderror="onLinkError">
